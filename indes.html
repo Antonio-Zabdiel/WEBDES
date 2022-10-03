@@ -11,12 +11,18 @@
     <body>
         <h3>Cifrar txt usando DES con JavaScript</h3>
         <label>Ingrese el archivo txt que desea Cifrar</label>
-        <input type="file" id="archivo">
+        <input type="file" id="archivo" onchange="loadFile(this.files[0])">
         <br><br>
         <label>Ingrese la clave que desea usar</label>
         <input class="entrada" type="text" maxlength="8" minlength="8" id="clave">
         <br><br>
         <input class="boton" type="button" id="descifrar" value="descifrar" onclick="">
         <input class="boton" type="button" id="Cifrar" value="cifrar" onclick="">
+        <br><br><br>
+        <label>Aqui aparecere el resultado del cifrado y/o descifrado</label>
+        <br>
+        <textarea id="resultado">
+
+        </textarea>
     </body>
 </html>

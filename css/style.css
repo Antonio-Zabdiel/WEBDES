@@ -1,16 +1,27 @@
 body{
     background-color: #9881e9;
     text-align: center;
+    font-family: Arial;
 }
 
 .entrada{
+    background-color: #f5f296;
     width: 75px;
     height: 15px;
     margin: 0%;
+    font-family: Arial;
 }
 
 .boton{
     background-color: #C4EFC1;
     border-color: #FF7B00;
     color: #FF7B00;
+    font-family: Arial;
+}
+
+textarea{
+    font-family: Arial;
+    background-color: #F5F296;
+    width: 500px;
+    height: 200px;
 }
