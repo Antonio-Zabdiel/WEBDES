@@ -1,3 +1,16 @@
 body{
-    background-color: rgb(152, 129, 233);
+    background-color: #9881e9;
+    text-align: center;
+}
+
+.entrada{
+    width: 75px;
+    height: 15px;
+    margin: 0%;
+}
+
+.boton{
+    background-color: #C4EFC1;
+    border-color: #FF7B00;
+    color: #FF7B00;
 }
