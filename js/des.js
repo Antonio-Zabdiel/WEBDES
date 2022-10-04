@@ -1,5 +1,4 @@
-
-const CryptoJS = require('crypto-js');
+var CryptoJS = require("crypto-js");
 
 
 async function loadFile(file) {
