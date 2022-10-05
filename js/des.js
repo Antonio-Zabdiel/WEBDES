@@ -1,39 +1,38 @@
-function cifrado(){    
+function cifrado()
+{   
+    //lectura de archivo
+    var archivo=document.getElementById("file");
+    var reader = new FileReader();
+    reader.readAsDataURL (archivo.files [0]); 
 
-    var clave=document.getElementById("clave").value;
-    console.log(clave);
+    reader.onload = function()
+    {
+        var texto=this.result;//texto leido
+        //console.log(texto)   
+        var clave=document.getElementById("clave").value;//alor de la llave
+        //console.log(clave);
+        var textcifrad=CryptoJS.DES.encrypt(texto,clave);//aplicar algoritmo de cifrado
+        //console.log(textcifrad);
+        document.getElementById("resultado").innerHTML = textcifrad;//redultado de cifrar
+    }
+    //console.log(texto);//aqui no sirve esto
 }
 
 
 function descifrado(){
-    var clave=document.getElementById("clave").value;
-    console.log(clave);   
-}
-
-function leerArchivo()
-{
-    /*
-    var CryptoJS = require("crypto-js");
-
-    // Encrypt
-    var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();
-
-    // Decrypt
-    var bytes  = CryptoJS.AES.decrypt(ciphertext, 'secret key 123');
-    */
-    //var originalText = bytes.toString(CryptoJS.enc.Utf8);
-
-    //console.log(originalText); // 'my message'
-
+    //convercion de archivo a texto
     var archivo=document.getElementById("file");
     var reader = new FileReader();
-    console.log("Estas dentro de la funcion")
-    reader.readAsDataURL (archivo.files [0]); // Iniciar una solicitud asincrónica
+    reader.readAsDataURL (archivo.files [0]); 
+
     reader.onload = function()
     {
-        // Después de la lectura, los datos se guardan en el atributo de resultado del objeto
-        var texto=this.result;
-        console.log(texto)   
-    }
-    //console.log(texto);//aqui no sirve esto
+        var texto=this.result;//texto leido
+        //console.log(texto)   
+        var clave=document.getElementById("clave").value;//valor de la llave
+        //console.log(clave);
+        var textdecifrad=CryptoJS.DES.decrypt(texto,clave);//aplicar descifrado 
+        console.log(textdecifrad);
+        document.getElementById("resultado").innerHTML = textdecifrad;//resultado de descifrado
+    } 
 }
