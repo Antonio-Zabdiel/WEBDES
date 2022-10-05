@@ -32,12 +32,7 @@ function descifrado(){
         var clave=document.getElementById("clave").value;//valor de la llave
         //console.log(clave);
         var textdescif=CryptoJS.DES.decrypt(texto,clave);//aplicar descifrado 
-        
-        console.log(textdescif);
-        var deciptplano=bytes.toString(CryptoJS.enc.Utf8);
-        console.log(deciptplano);
         //console.log(textdescif);
-        //document.getElementById("resultado").innerHTML = textdescif;//resultado de descifrado
-
+        document.getElementById("resultado").innerHTML = textdescif;//resultado de descifrado
     } 
 }
