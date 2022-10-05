@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <script src="./js/des.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/tripledes.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/enc-base64.min.js"></script>
+        <title>DES</title>
+    </head>
+    <body>
+        <header>
+            <h3>Cifrar documento .txt con algoritmo DES</h3>
+        </header>
+
+        <br>
+
+        <label>Ingrese el archivo txt que desea Cifrar:</label>
+        <input class="entrada2" type="file" id="file"><!--entrada de archivo-->
+
+        <br><br>
+
+        <label>Ingrese la clave que desea usar:</label><!--clave que usara des-->
+        <input class="entrada" type="text" maxlength="8" minlength="8" id="clave">
+
+        <br><br>
+
+        <input class="boton" type="button" id="descifrar" value="descifrar" onclick="descifrado();"><!--opcion de descifrar-->
+
+        <input class="boton" type="button" id="Cifrar" value="cifrar" onclick="cifrado()"><!--opcion de descifrar-->
+
+        <br><br>
+
+        <label>Aqui aparecere el resultado del cifrado o descifrado</label><!--area donde aparecera el resultado-->
+
+        <br>
+
+        <textarea id="resultado">
+        </textarea>
+    </body>
+</html>

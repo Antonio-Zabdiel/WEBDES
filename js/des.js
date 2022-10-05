@@ -31,8 +31,13 @@ function descifrado(){
         //console.log(texto)   
         var clave=document.getElementById("clave").value;//valor de la llave
         //console.log(clave);
-        var textdecifrad=CryptoJS.DES.decrypt(texto,clave);//aplicar descifrado 
-        console.log(textdecifrad);
-        document.getElementById("resultado").innerHTML = textdecifrad;//resultado de descifrado
+        var textdescif=CryptoJS.DES.decrypt(texto,clave);//aplicar descifrado 
+        
+        console.log(textdescif);
+        var deciptplano=bytes.toString(CryptoJS.enc.Utf8);
+        console.log(deciptplano);
+        //console.log(textdescif);
+        //document.getElementById("resultado").innerHTML = textdescif;//resultado de descifrado
+
     } 
 }
