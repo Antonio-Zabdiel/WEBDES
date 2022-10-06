@@ -7,13 +7,19 @@ function cifrado()
 
     reader.onload = function()
     {
-        var texto=this.result;//texto leido
-        //console.log(texto)   
-        var clave=document.getElementById("clave").value;//alor de la llave
-        //console.log(clave);
-        var textcifrad=CryptoJS.DES.encrypt(texto,clave);//aplicar algoritmo de cifrado
-        //console.log(textcifrad);
-        document.getElementById("resultado").innerHTML = textcifrad;//redultado de cifrar
+        
+        reader.addEventListener('loadend', function() {
+            document.getElementById('file').innerText = this.result;
+        });
+        document.getElementById('file').files[0].text().then(PromiseResult => {
+            var texto=PromiseResult;
+            console.log(texto);
+            var clave=document.getElementById("clave").value;//alor de la llave
+            //console.log(clave);
+            var textcifrad=CryptoJS.DES.encrypt(texto,clave);//aplicar algoritmo de cifrado
+            //console.log(textcifrad);
+            document.getElementById("resultado").innerHTML = textcifrad;//redultado de cifrar
+        })
     }
     //console.log(texto);//aqui no sirve esto
 }
@@ -27,12 +33,27 @@ function descifrado(){
 
     reader.onload = function()
     {
-        var texto=this.result;//texto leido
-        //console.log(texto)   
-        var clave=document.getElementById("clave").value;//valor de la llave
-        //console.log(clave);
-        var textdescif=CryptoJS.DES.decrypt(texto,clave);//aplicar descifrado 
-        //console.log(textdescif);
-        document.getElementById("resultado").innerHTML = textdescif;//resultado de descifrado
-    } 
+        reader.addEventListener('loadend', function() {
+            document.getElementById('file').innerText = this.result;
+        });
+        document.getElementById('file').files[0].text().then(PromiseResult => {
+            var texto=PromiseResult
+            console.log(texto)   
+            var clave=document.getElementById("clave").value;//valor de la llave
+            console.log(clave);
+            var textdescif=CryptoJS.DES.decrypt(texto,clave);//aplicar descifrado 
+            var decifForm=hex_to_ascii(textdescif)
+            console.log(decifForm);
+            document.getElementById("resultado").innerHTML = decifForm;//resultado de descifrado
+        })
+    }
 }
+
+function hex_to_ascii(str1)
+ {
+    var hex = str1.toString();//force conversion
+    var str = '';
+    for (var i = 0; i < hex.length; i += 2)
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    return str;
+ }
