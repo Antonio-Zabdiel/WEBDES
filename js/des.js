@@ -19,9 +19,10 @@ function cifrado()
             var textcifrad=CryptoJS.DES.encrypt(texto,clave);//aplicar algoritmo de cifrado
             //console.log(textcifrad);
             document.getElementById("resultado").innerHTML = textcifrad;//redultado de cifrar
+
+            document.getElementById("file").value = "";
         })
     }
-    //console.log(texto);//aqui no sirve esto
 }
 
 
@@ -45,6 +46,8 @@ function descifrado(){
             var decifForm=hex_to_ascii(textdescif)
             console.log(decifForm);
             document.getElementById("resultado").innerHTML = decifForm;//resultado de descifrado
+            
+            document.getElementById("file").value = "";
         })
     }
 }
